@@ -1,0 +1,99 @@
+#==============================================================================
+#                               conkyrc_orange
+#
+#  author  : SLK
+#  version : v2011011601
+#  license : Distributed under the terms of GNU GPL version 2 or later
+#
+#==============================================================================
+
+
+override_utf8_locale yes
+use_xft yes
+xftfont ubuntu:size=10.5
+xftalpha 0.5
+uppercase no
+no_buffers yes # Subtract cached and buffered ram from memory usage.
+
+display :0.0
+text_buffer_size 2048
+update_interval .75        # change to .001 for 1000 times per second stress test
+total_run_times 0
+own_window yes
+own_window_type desktop
+own_window_type normal
+own_window_transparent no
+own_window_argb_visual yes
+own_window_argb_value 0  # semi-transparent
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 1920 1080
+maximum_width 1920
+
+draw_shades yes
+# off-white
+default_color ECEAE4
+# blue
+color1 1EB5FF
+# light blue
+color2 30DDFB
+# dark blue
+color3 0090ff
+# lime
+color4 98FF76
+default_shade_color 000000
+
+draw_outline no
+draw_borders no
+stippled_borders 0
+alignment top_left        # top_left for Screen 1, top_right for Screen 2
+
+gap_x 0
+gap_y 0
+
+
+TEXT
+${offset 580}${voffset 0}${color dcdcdc}${font monofur:pixelsize=175}${time %H:%M}${font monofur}${offset -390}${voffset 30}${color dcdcdc}${font monofur:pixelsize=70}${time %a},${time %d} ${color dcdcdc}${font monofur:pixelsize=70}${time  %b}
+#${image ~/.conky/rev-eng.png}
+
+
+${offset 75}${voffset -370}${color ffffff}${font monofur:size=11:style=Bold}${exec whoami}@${nodename}
+${offset 75}${color ffffff}Linux ${kernel}
+${offset 75}${color ffffff}Uptime: ${uptime}
+
+${offset 75}${voffset 100}${font monofur:size=11:style=Bold}root: ${font monofur:size=10}${fs_used /}/${fs_size /}
+${offset 75}${voffset}${font monofur:size=11:style=Bold}Particion 1: ${font monofur:size=10}${fs_used /run/media/trini/755D484C617BFE22/}/${fs_size /run/media/trini/755D484C617BFE22/}
+${offset 75}${voffset}${color ffffff}${font monofur:size=11:style=Bold}Particion 2: ${font monofur:size=10}${fs_used /run/media/trini/5C4849BA2E77AD36/}/${fs_size /run/media/trini/5C4849BA2E77AD36/}
+${offset 75}${voffset}${color ffffff}${font monofur:size=11:style=Bold}Particion 3: ${font monofur:size=10}${fs_used /run/media/trini/Nuevo vol/}/${fs_size /run/media/trini/Nuevo vol/}
+${offset 75}${voffset}${color ffffff}${font monofur:size=11:style=Bold}Particion 4: ${font monofur:size=10}${fs_used /run/media/trini/5bbcf5f1-ecb2-46b8-886e-080f3984c086/}/${fs_size /run/media/trini/5bbcf5f1-ecb2-46b8-886e-080f3984c086/}
+${offset 75}${voffset}${color ffffff}${font monofur:size=11:style=Bold}swap: ${font monofur:size=10}${swap}/${swapfree}
+
+${offset 320}${voffset -61}${color ffffff}${font monofur:size=11}${color ffffff}IP Address: ${color ffffff}${addr wlp3s0}
+${offset 320}${color ffffff}${font monofur:size=11}${color ffffff}Down: ${color ffffff}${downspeed wlp3s0}
+${offset 320}${color ffffff}Up: ${color ffffff}${upspeed wlp3s0}
+
+${offset 75}${voffset 58}${color ffffff}${font monofur:size=12}${cpu cpu_avg_samples}%${offset 10}${color dcdcdc}${hwmon 2 temp 1}°C
+${offset 80}${voffset 2}${color ffffff}${font monofur:size=10}${top name 1} ${top cpu 1}
+${offset 80}${voffset}${color ffffff}${font monofur:size=10}${top name 2} ${top cpu 2}
+${offset 80}${voffset}${color ffffff}${font monofur:size=10}${top name 3} ${top cpu 3}
+${offset 80}${voffset}${color ffffff}${font monofur:size=10}${top name 4} ${top cpu 4}
+${offset 80}${voffset}${color ffffff}${font monofur:size=10}${top name 5} ${top cpu 5}
+${offset 80}${voffset}${color ffffff}${font monofur:size=10}${top name 6} ${top cpu 6}
+${offset 80}${voffset}${color ffffff}${font monofur:size=10}${top name 7} ${top cpu 7}
+${offset 80}${voffset}${color ffffff}${font monofur:size=10}${top name 8} ${top cpu 8}
+${offset 80}${voffset}${color ffffff}${font monofur:size=10}${top name 9} ${top cpu 9}
+${offset 80}${voffset}${color ffffff}${font monofur:size=10}${top name 10} ${top cpu 10}
+
+    ${offset 350}${voffset -186}${color ffffff}${font monofur:size=12}$mem/$memmax${offset 30}${color dcdcdc}
+${offset 350}${voffset 2}${color ffffff}${font monofur:size=10}${top_mem name 1} ${top_mem mem_res 1}
+${offset 350}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 2} ${top_mem mem_res 2}
+${offset 350}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 3} ${top_mem mem_res 3}
+${offset 350}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 4} ${top_mem mem_res 4}
+${offset 350}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 5} ${top_mem mem_res 5}
+${offset 350}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 6} ${top_mem mem_res 6}
+${offset 350}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 7} ${top_mem mem_res 7}
+${offset 350}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 8} ${top_mem mem_res 8}
+${offset 350}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 9} ${top_mem mem_res 9}
+${offset 350}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 10} ${top_mem mem_res 10}
+
+${voffset -267}${font monofur:pixelsize=14}${color ffffff}${execpi 1400 gcalcli --refresh --detail_location --nolineart --nocolor --military agenda "$(date)" }
