@@ -1,0 +1,59 @@
+background no
+update_interval 0.5
+update_run_times 0
+total_run_times 0
+
+max_specials 10000
+max_user_text 15000
+
+override_utf8_locale yes
+use_xft yes
+xftfont Droid Sans:size=9
+xftalpha 1
+uppercase no
+
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+own_window_title
+own_window_argb_visual no
+own_window_argb_value 0
+own_window_colour 000000
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+double_buffer yes
+no_buffers yes
+
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+default_shade_color black
+default_outline_color white
+
+minimum_size 150 150
+maximum_width 200
+alignment top_middle
+gap_x 0
+gap_y 50
+
+text_buffer_size 1024
+imlib_cache_size 0
+
+cpu_avg_samples 2
+top_name_width 5
+temperature_unit celcius
+
+default_shade_color black
+default_outline_color white
+default_color FFFFFF
+
+lua_load ~/.conky/SMOA/scripts/lua/circle.lua
+lua_draw_hook_post clock_rings
+
+TEXT
+
+${image ~/.conky/SMOA/bg/bg.png -s 160x160 -p 0,0}
+
+##===================================== Regards, Etles_Team ==================================##

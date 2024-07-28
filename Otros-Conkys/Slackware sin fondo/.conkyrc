@@ -1,0 +1,72 @@
+##       ~~» Configuración de Conky creada por El Santi «~~           ##
+##                                                                    ##
+##                                                                    ##
+## 				                                      ##
+########################################################################
+       
+   
+background yes
+font FreeSans:pixelsize=11
+xftfont FreeSans:pixelsize=11
+use_xft yes
+xftalpha 0.1
+update_interval 1.0
+own_window yes
+own_window_transparent yes
+own_window_argb_visual yes
+own_window_type normal
+own_window_class conky-semi
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+minimum_size 10 10
+maximum_width 250
+default_color FFFFFF
+default_shade_color 000000 
+default_outline_color FFFFFF
+alignment top_left
+gap_x 0
+gap_y 0
+no_buffers yes
+cpu_avg_samples 2
+override_utf8_locale no
+uppercase no # set to yes if you want all text to be in uppercase
+use_spacer none
+own_window_title mi_conky
+override_utf8_locale yes
+
+TEXT
+
+${color white}
+${font FreeSans:size=65}${alignc}${time %H:%M}${font}
+${font FreeSans:style=Bold:pixelsize=18}${time %A, %d %b %Y}
+${color black}${cpugraph cpu0 120,250 FFFFFF 000000}${voffset -117}${font FreeSans:style=Bold:pixelsize=12}                         CPU   
+            Core 1:                Core 2:
+ ${color black}${cpu cpu1}% ${color black}${cpubar cpu1 3,80}   ${color black}${cpu cpu2}% ${color black}${cpubar cpu2 3,80}
+            ${execi 20 sensors | grep "Core 0" | cut -d "+" -f2 | cut -c1-4 }*C                  ${execi 20 sensors | grep "Core 1" | cut -d "+" -f2 | cut -c1-4 }*C
+${color black}${font Charter:regular:size=8}${voffset -20}
+ ${color black}${font Charter:regular:size=8} 
+  ${top name 1}${alignr 100}${top cpu 1}%
+  ${top name 2}${alignr 100}${top cpu 2}%
+  ${top name 3}${alignr 100}${top cpu 3}%
+$font${color black}
+${memgraph 85,250 FFFFFF 000000}
+${color black}${font Charter:style=Bold::size=8}${voffset -90} Memoria RAM:${alignr 30}$mem/ $memmax
+${hr 2}
+${alignr  97} ($memperc%)
+${color black}${font Charter:regular:size=8}  ${top_mem name 1}${alignr 100}${top_mem mem 1}%
+  ${top_mem name 2}${alignr 100}${top_mem mem 2}%
+  ${top_mem name 3}${alignr 100}${top_mem mem 3}%
+
+
+${font FreeSans:style=Bold:pixelsize=11}
+${color black}${alignc}IP: ${color black}${addr wlan0}
+${color black}Senal: ${color black}${wireless_link_qual wlan0}% ${wireless_link_bar 4 wlan0}
+
+${color black}DOWN:${color black} ${downspeed wlan0} ${alignr}${color black} UP:${color black}${upspeed wlan0}
+${downspeedgraph wlan0 25,120 FFFFFF 000000}${alignr}${color black}${upspeedgraph wlan0 25,120 000000 FFFFFF}
+${color black}TOTAL: ${color black}${totaldown wlan0}${alignr}${color black}TOTAL: ${color black}${totalup wlan0}
+ 

@@ -1,0 +1,102 @@
+# Tipo de letra por defecto.
+use_xft yes
+font FreeSans:pixelsize=11
+xftfont FreeSans:pixelsize=11
+override_utf8_locale yes
+
+# Configuración de rendimiento.
+update_interval 1
+double_buffer yes
+no_buffers yes
+cpu_avg_samples 2
+
+# Ejecutarlo en su propia ventana en lugar de usar el escritorio.
+own_window yes
+own_window_transparent yes
+own_window_argb_visual yes
+own_window_type normal
+own_window_class conky
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Borde.
+draw_borders no
+
+# Color por defecto del fondo de la ventana
+#own_window_colour 393834
+
+# Color por defecto.
+#default_color B7B2AD
+default_color 000000
+
+# Dibuja marco.
+draw_shades no
+draw_graph_borders no
+draw_outline no
+draw_borders no
+
+# Colores de trabajo.
+#color0 DD3A21
+color0 A9B7C4
+# Dimensiones mínimas.
+minimum_size 20 10
+
+maximum_size 20 10
+
+# Posición de Conky.
+alignment top_left
+gap_x 0
+gap_y -850
+
+# Texto
+TEXT
+${voffset -7}${goto 1240}${font Charter:style=Bold::size=10}${color black} TEMPERATURAS
+${goto 1240}-------------------------
+${goto 1240}${font Charter:style=Bold::size=8}${color brown}CPU: ${color black}${execi 20 sensors | grep "CPUTIN" | cut -d "+" -f2 | cut -c1-4 }ºC
+${goto 1240}${color brown}CORE 0: ${color black}${execi 20 sensors | grep "Physical id 0" | cut -d "+" -f2 | cut -c1-4 }ºC
+${goto 1240}${color brown}CORE 1: ${color black}${execi 20 sensors | grep "Core 0" | cut -d "+" -f2 | cut -c1-4 }ºC 
+${goto 1240}${color brown}CORE 2: ${color black}${execi 20 sensors | grep "Core 1" | cut -d "+" -f2 | cut -c1-4 }ºC
+${goto 1240}${color brown}MOTHER: ${color black}${execi 20 sensors | grep "SYSTIN" | cut -d "+" -f2 | cut -c1-4 }ºC
+${voffset -118$}${goto 65}${color brown}${font FreeSans:size=85}${time %H:%M}${font}${voffset -80}${goto 400}${color white}${memgraph 130,250 000000 1D1D1D}${voffset 10}${goto 400} ${font Charter:style=Bold::size=8}${color black}RAM:          $mem/ $memmax        ($memperc%) ${voffset -10}${goto 680}${color green}${cpugraph cpu0 130,250 000000 1D1D1D}${voffset -130}  
+${font Charter:style=Bold::size=8}${voffset 0}
+${voffset 40}${goto 1650}${font FreeSans:style=Bold:pixelsize=30} ${font FreeSans:style=Bold:pixelsize=25}
+${voffset 0}${goto 1735}${color brown}${font FreeSans:style=Bold:pixelsize=25}
+${voffset -120}${goto 400}${color black}${font FreeSans:style=Bold:pixelsize=15}--------------------------------------------------
+${color brown}${font Charter:regular:size=8}${voffset -0}${goto 400}${top_mem name 1}${goto 604}${top_mem mem 1}%
+${goto 400}${top_mem name 2}${goto 604}${top_mem mem 2}%
+${goto 400}${top_mem name 3}${goto 604}${top_mem mem 3}%
+${goto 400}${top_mem name 4}${goto 604}${top_mem mem 4}%
+${goto 400}${top_mem name 5}${goto 604}${top_mem mem 5}%
+${goto 400}${top_mem name 6}${goto 604}${top_mem mem 6}%
+${goto 400}${top_mem name 7}${goto 604}${top_mem mem 7}%
+${color brown}${font Charter:regular:size=8}${voffset -85}${goto 680}${top name 1}${goto 884}${top cpu 1}%
+${goto 680}${top name 2}${goto 884}${top cpu 2}%
+${goto 680}${top name 3}${goto 884}${top cpu 3}%
+${goto 680}${top name 4}${goto 884}${top cpu 4}%
+${goto 680}${top name 5}${goto 884}${top cpu 5}%
+${goto 680}${top name 6}${goto 884}${top cpu 6}%
+${goto 680}${top name 7}${goto 884}${top cpu 7}%
+${font Charter:style=Bold:size=7}${voffset -125}${goto 680}${color black}${cpu cpu1}% ${color brown}${cpubar cpu1 5,220} 
+${goto 680}${color black}${cpu cpu2}% ${color brown}${cpubar cpu2 5,220} 
+${goto 680}${color black}${cpu cpu0}% ${color brown}${cpubar cpu0 5,220} 
+${voffset -30}${goto 950}${font Charter:style=Bold:size=10}${color 000000}SISTEMA: $sysname $kernel $machine
+
+${goto 950}${color brown}ACTUALIZACIONES: ${color black}${execi 4200 perl /home/santi/.listadoactconky.pl}
+${goto 950}${color brown}ENCENDIDA: ${color black}$uptime
+${goto 950}${color brown}KERNEL: ${color black}$kernel
+${goto 950}${color brown}PROCESOS: ${color black}$processes 
+${goto 950}${color brown}BUFFER: ${color black}$buffers
+${goto 950}${color brown}CACHE: ${color black}$cached
+${voffset -30}${goto 55}${font FreeSans:style=Bold:pixelsize=35}${time %A,} ${font FreeSans:style=Bold:pixelsize=30}${time %d %b %Y}
+
+${voffset -181}${goto 1540}${color black}${font FreeSans:style=Bold:pixelsize=11}${alignc}Local${font FreeSans:pixelsize=11}
+${goto 1515}${alignc}${fs_used /} ~ ${fs_size /}
+${goto 1400}${color brown}${fs_bar 4 /}
+
+${goto 1540}${color black}${font FreeSans:style=Bold:pixelsize=11}${alignc}Datos 1${font FreeSans:pixelsize=11}
+${goto 1515}${alignc}${fs_used /run/media/santi/335C4C2E597A0FA7/} ~ ${fs_size /run/media/santi/335C4C2E597A0FA7/}
+${goto 1400}${color brown}${fs_bar 4 /run/media/santi/335C4C2E597A0FA7/}
+
+${goto 1540}${color black}${font FreeSans:style=Bold:pixelsize=11}${alignc}Datos 2${font FreeSans:pixelsize=11}
+${goto 1515}${alignc}${fs_used /run/media/santi/43296ECC51B9B242/} ~ ${fs_size /run/media/santi/43296ECC51B9B242/}
+${goto 1400}${color brown}${fs_bar 4 /run/media/santi/43296ECC51B9B242/}
+
